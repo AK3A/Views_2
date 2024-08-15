@@ -145,7 +145,7 @@ def lol():
 
             if 'Favorites successfully sent.' in str(base64_string2):
                 c+=1
-                print(f'Successfully Favorites sent. - {c}', end = "\r")
+                print(f'Successfully Favorites sent. - {c}')
             else:
                 pass
 
