@@ -164,5 +164,7 @@ if __name__ == '__main__':
     tttt = 60
 
     while True:
-        lol()
+        for i in range(3):
+            lol()
+            time.sleep(5)
         time.sleep(tttt)
