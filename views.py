@@ -161,7 +161,7 @@ def lol():
 
 if __name__ == '__main__':
     video_url = input("Link: ")
-    tttt = 60
+    tttt = 120
 
     while True:
         for i in range(3):
