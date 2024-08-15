@@ -147,7 +147,7 @@ def lol():
 
             if 'Successfully 1000 views sent.' in str(base64_string2):
                 c+=1
-                print(f'Successfully 1000 views sent. - {c}', end = "\r")
+                print(f'Successfully 1000 views sent. - {c}')
             else:
                 pass
 
