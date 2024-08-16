@@ -1,4 +1,5 @@
-import pytesseract
+import pytesseract, math
+from datetime import datetime
 import base64, urllib.parse, time
 import requests, re, random, string, json
 from requests_toolbelt import MultipartEncoder
@@ -13,6 +14,16 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 
 def DECRYPTION_BASE64(base64_code):
     return base64.b64decode(urllib.parse.unquote(base64_code[::-1])).decode()
+
+def ltm(t):
+    stm = math.floor(datetime.now().timestamp() / 1000)
+    ltm = int(re.search('ltm=(.*?);', str(t)).group(1))
+    ntm=math.floor(datetime.now().timestamp()/1000)
+    fark=((stm-ntm)+ltm)
+    m = int(fark/60)
+    s = int(fark%60)
+
+    return int(m * 60 + s + 1)
 
 
 def BYPASS_IKLAN_GOOGLE():
@@ -81,7 +92,7 @@ r3 = s.post('https://zefoy.com/', data = data).text
 
 
 def lol():
-    global c
+    global c, base64_string2
 
     if 'placeholder="Enter Video URL"' in str(r3):
         video_form = re.search('name="(.*?)" placeholder="Enter Video URL"', str(r3)).group(1)
@@ -161,8 +172,11 @@ def lol():
 
 if __name__ == '__main__':
     video_url = input("Link: ")
-    tttt = 120
 
     while True:
-        lol()
-        time.sleep(tttt)
+        try:
+            lol()
+            tttt = ltm(base64_string2)
+            time.sleep(tttt)
+        except:
+            time.sleep(120)
